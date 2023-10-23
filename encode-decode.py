@@ -1,3 +1,4 @@
+# credit: Nathan Padriga
 def encode(raw_password):
     encoded_password = ""
 
