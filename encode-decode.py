@@ -14,6 +14,29 @@ def encode(raw_password):
 
     return encoded_password
 
+def decoder(encoded_pass): # decoder function 
+    decoded_pass = ""
+
+    for char in encoded_pass:
+
+        char = int(char)
+
+        if char <= 2:
+            if char == 2:
+                char = 9
+            elif char == 1:
+                char = 8
+            elif char == 0:
+                char = 7
+        else:
+            char = char - 3
+
+        make_string = str(char)
+        decoded_pass += make_string
+
+    return decoded_pass
+
+
 if __name__ == '__main__':
 
     stored_password = ""
@@ -34,6 +57,7 @@ Menu
                 stored_password = encode(input("Please enter your password to encode: "))
                 print("Your password has been encoded and stored!")
             case "2": # Decode
-                print("Unimplemented!")
+                decoded_pass = decoder(stored_password)
+                print(f"The encoded password is {stored_password}, and the original password is {decoded_pass}.\n")
             case "3": # Quit
                 exit()
